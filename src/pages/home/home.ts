@@ -7,6 +7,11 @@ import { ProductPage } from "../product/product";
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public objeto_home = {
+    titulo: "Bateria Moura",
+    preco: "R$ 100,00",
+    vendedor: "WR autopeças"
+  }
 
   constructor(
     public navCtrl: NavController) {
