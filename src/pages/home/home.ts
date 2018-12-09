@@ -17,8 +17,7 @@ export class HomePage {
     vendedor: "WR autopeças"
   }
 
-  public lista_produtos = new Array<any>();
-  
+  public lista_produtos = new Array<any>();  
 
   constructor(
     public navCtrl: NavController,

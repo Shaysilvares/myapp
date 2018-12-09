@@ -13,10 +13,10 @@
     <ion-card *ngFor="let produto of lista_produtos">
         <ion-item>
             <ion-thumbnail item-start>
-              <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
+              <img src="https://dev.autodicas.com/{{ produto.imagem }}">
             </ion-thumbnail>
             <h2>{{ produto.titulo }}</h2>
-            <p><strong>Vendedor:</strong> bla</p>
+            <p *ngFor="let loja of produto.loja" ><strong>Vendedor:</strong> {{ loja.razao_social }}</p>
             <p>R$ {{ produto.valor_format }}</p>
             <button ion-button clear item-end (click)="goToProductPage()">View</button>
           </ion-item>        
