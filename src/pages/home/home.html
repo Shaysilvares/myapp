@@ -8,40 +8,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
-      </ion-thumbnail>
-      <h2>{{ objeto_home.titulo }}</h2>
-      <p><strong>Vendedor:</strong> {{ objeto_home.vendedor }}</p>
-      <p>{{ objeto_home.preco }}</p>
-      <button ion-button clear item-end (click)="goToProductPage()">View</button>
-    </ion-item>
-  </ion-list>
 
-  <ion-list>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
-        </ion-thumbnail>
-        <h2>{{ objeto_home.titulo }}</h2>
-        <p><strong>Vendedor:</strong> {{ objeto_home.vendedor }}</p>
-        <p>{{ objeto_home.preco }}</p>
-        <button ion-button clear item-end (click)="goToProductPage()">View</button>
-      </ion-item>
-    </ion-list>
-
-    <ion-list>
+  
+    <ion-card *ngFor="let produto of lista_produtos">
         <ion-item>
-          <ion-thumbnail item-start>
-            <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
-          </ion-thumbnail>
-          <h2>{{ objeto_home.titulo }}</h2>
-          <p><strong>Vendedor:</strong> {{ objeto_home.vendedor }}</p>
-          <p>{{ objeto_home.preco }}</p>
-          <button ion-button clear item-end (click)="goToProductPage()">View</button>
-        </ion-item>
-      </ion-list>
-
+            <ion-thumbnail item-start>
+              <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
+            </ion-thumbnail>
+            <h2>{{ produto.titulo }}</h2>
+            <p><strong>Vendedor:</strong> bla</p>
+            <p>R$ {{ produto.valor_format }}</p>
+            <button ion-button clear item-end (click)="goToProductPage()">View</button>
+          </ion-item>        
+    </ion-card>
 </ion-content>

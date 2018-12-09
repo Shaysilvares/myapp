@@ -15,7 +15,7 @@ export class ProdutosProvider {
   }
 
   getProdutos() {
-    return this.http.get("https://...");
+    return this.http.get("https://dev.autodicas.com/api/produtos");
   }
 
 }

@@ -11,15 +11,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-product',
-  templateUrl: 'product.html',
+  templateUrl: 'product.html'
+  
 })
 export class ProductPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams
+    ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductPage');
   }
 
 }

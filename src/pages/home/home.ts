@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ProductPage } from "../product/product";
+import { ProdutosProvider } from '../../providers/produtos/produtos';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [
+    ProdutosProvider
+  ]
 })
 export class HomePage {
   public objeto_home = {
@@ -13,13 +17,29 @@ export class HomePage {
     vendedor: "WR autopeças"
   }
 
+  public lista_produtos = new Array<any>();
+  
+
   constructor(
-    public navCtrl: NavController) {
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private produtosProvider: ProdutosProvider) {
 
   }
 
   goToProductPage() {
     this.navCtrl.push(ProductPage)
+  }
+
+  ionViewDidLoad() {
+    this.produtosProvider.getProdutos().subscribe(
+      data =>{
+        this.lista_produtos = (data as Array<any>);
+        console.log(this.lista_produtos);
+      }, error => {
+        console.log(error);
+      }
+    )
   }
 
 }
