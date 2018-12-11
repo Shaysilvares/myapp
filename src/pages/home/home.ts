@@ -26,8 +26,8 @@ export class HomePage {
 
   }
 
-  goToProductPage() {
-    this.navCtrl.push(ProductPage)
+  goToProductPage(produto) {    
+    this.navCtrl.push(ProductPage, { id: produto.id })
   }
 
   ionViewDidLoad() {

@@ -14,19 +14,19 @@
 
 
 <ion-content>
-    <ion-grid>
+    <ion-grid *ngIf="detalheProduto">
         <ion-row>
           <ion-col col-12>
-            <h4>Bateria Moura</h4>
-            <img src="https://autodicas.com/img/produtos/3/tmpphpitndzw//_img_49693.jpeg">
-            <p>Preço: R$ 100,00</p>
+            <h4> {{ detalheProduto.titulo }} </h4>
+            <img src="https://dev.autodicas.com/{{ detalheProduto.imagem }}">
+            <p>R$ {{detalheProduto.valor_format }}</p>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col col-12>
             <h4>Detalhe do produto</h4>
-            <p>Bateria Moura Original De Montadora 60AH - Temos todas as amperagem - A base de troca</p>
+            <p> {{detalheProduto.descricao }} </p>
           </ion-col>
           <ion-col col-12>
               <ion-card>

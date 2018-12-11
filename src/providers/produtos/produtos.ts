@@ -18,4 +18,8 @@ export class ProdutosProvider {
     return this.http.get("https://dev.autodicas.com/api/produtos");
   }
 
+  getDetalheProdutos(produtoId) {
+    return this.http.get(`https://dev.autodicas.com/api/produtos/${produtoId}`);
+  }
+
 }
