@@ -16,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { CategoriasProvider } from '../providers/categorias/categorias';
 import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categorias';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categ
     CategoriasPage,
     TabsPage,
     ProdutoCategoriasPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categ
     ProductPage,
     CategoriasPage,
     TabsPage,
-    ProdutoCategoriasPage
+    ProdutoCategoriasPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
