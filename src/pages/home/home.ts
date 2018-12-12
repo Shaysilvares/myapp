@@ -11,12 +11,6 @@ import { ProdutosProvider } from '../../providers/produtos/produtos';
   ]
 })
 export class HomePage {
-  public objeto_home = {
-    titulo: "Bateria Moura",
-    preco: "R$ 100,00",
-    vendedor: "WR autopeças"
-  }
-
   public lista_produtos = new Array<any>();  
 
   constructor(

@@ -13,12 +13,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductPageModule } from '../pages/product/product.module';
 import { ProdutosProvider } from '../providers/produtos/produtos';
 import { ProductPage } from '../pages/product/product';
+import { TabsPage } from '../pages/tabs/tabs';
+import { CategoriasPage } from '../pages/categorias/categorias';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    CategoriasPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ProductPage } from '../pages/product/product';
     MyApp,
     HomePage,
     ListPage,
-    ProductPage
+    ProductPage,
+    CategoriasPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

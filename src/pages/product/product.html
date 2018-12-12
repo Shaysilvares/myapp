@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ProductPage</ion-title>
+    <ion-title>Detalhe do Produto</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -29,16 +29,31 @@
             <p> {{detalheProduto.descricao }} </p>
           </ion-col>
           <ion-col col-12>
+              <ion-card *ngFor="let loja of detalheProduto.loja">
+                  <ion-card-header>
+                    Localização
+                  </ion-card-header>
+                
+                  <ion-card-content>
+                      <ion-list>Loja: {{ loja.razao_social }}</ion-list>
+                      <ion-list>Telefone: </ion-list>
+                      <ion-list>CEP: {{ loja.cep }}</ion-list>
+                      <ion-list>Endereço: {{ loja.endereco }}</ion-list>
+                      <ion-list>Bairro: {{ loja.bairro }}</ion-list>
+                      <ion-list>Cidade: </ion-list>
+                  </ion-card-content>                
+                </ion-card>
+
               <ion-card>
                   <ion-card-header>
                     Dicas de segurança
                   </ion-card-header>
                 
                   <ion-card-content>
-                      Ligue para loja
-                      Diga que viu no autodicas
-                      Confirme se tem o produto
-                      Confirme o preço
+                      <ion-list>Ligue para loja</ion-list>
+                      <ion-list>Diga que viu no autodicas</ion-list> 
+                      <ion-list>Confirme se tem o produto</ion-list> 
+                      <ion-list>Confirme o preço</ion-list>
                   </ion-card-content>                
                 </ion-card>
 
@@ -48,9 +63,9 @@
                     </ion-card-header>
                   
                     <ion-card-content>
-                        <ion-icon name="heart"></ion-icon>
-                        <ion-icon name="heart"></ion-icon>
-                        <ion-icon name="heart"></ion-icon>
+                        <ion-icon name="logo-twitter"></ion-icon>
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                        <ion-icon name="logo-facebook"></ion-icon>
                     </ion-card-content>                
                   </ion-card>
             </ion-col>
