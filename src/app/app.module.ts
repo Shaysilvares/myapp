@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,14 +14,16 @@ import { ProdutosProvider } from '../providers/produtos/produtos';
 import { ProductPage } from '../pages/product/product';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CategoriasPage } from '../pages/categorias/categorias';
+import { CategoriasProvider } from '../providers/categorias/categorias';
+import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categorias';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     CategoriasPage,
-    TabsPage
+    TabsPage,
+    ProdutoCategoriasPage,
   ],
   imports: [
     BrowserModule,
@@ -35,16 +36,17 @@ import { CategoriasPage } from '../pages/categorias/categorias';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     ProductPage,
     CategoriasPage,
-    TabsPage
+    TabsPage,
+    ProdutoCategoriasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProdutosProvider
+    ProdutosProvider,
+    CategoriasProvider
   ]
 })
 export class AppModule {}

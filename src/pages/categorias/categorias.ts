@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CategoriasProvider } from '../../providers/categorias/categorias';
+import { HomePage } from '../home/home';
+import { ProdutosProvider } from '../../providers/produtos/produtos';
+import { ProdutoCategoriasPage } from '../produto-categorias/produto-categorias';
 
 /**
  * Generated class for the CategoriasPage page.
@@ -12,14 +16,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-categorias',
   templateUrl: 'categorias.html',
+  providers: [
+    CategoriasProvider,
+    ProdutosProvider
+  ]
 })
 export class CategoriasPage {
+  private listaCategoria;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public categoriasProvider: CategoriasProvider,
+    public produtoProvider: ProdutosProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
+    this.categoriasProvider.getCategorias().subscribe(
+      data => {
+        this.listaCategoria = (data as any);
+      }
+    )
+  }
+
+  itemClicked(categorias) {
+    this.navCtrl.push(ProdutoCategoriasPage, { id: categorias.id })
+    console.log(categorias.id);
   }
 
 }
