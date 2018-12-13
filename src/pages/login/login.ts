@@ -26,5 +26,4 @@ export class LoginPage {
   goToHomePage() {    
     this.navCtrl.setRoot(HomePage);
   }
-
 }

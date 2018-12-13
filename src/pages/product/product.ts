@@ -21,7 +21,7 @@ import { ProdutosProvider } from '../../providers/produtos/produtos';
 export class ProductPage {
   private detalheProdutoId;
   public detalheProduto;
-
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,

@@ -55,21 +55,16 @@
                       <ion-list>Confirme se tem o produto</ion-list> 
                       <ion-list>Confirme o preço</ion-list>
                   </ion-card-content>                
-                </ion-card>
-
-                <ion-card>
-                    <ion-card-header>
-                      Divulgar nas redes sociais
-                    </ion-card-header>
-                  
-                    <ion-card-content>
-                        <ion-icon class="fa-twitter"></ion-icon>
-                        <ion-icon class="fa-whatsapp"></ion-icon>
-                        <ion-icon class="fa-facebook"></ion-icon>
-                    </ion-card-content>                
-                  </ion-card>
+                </ion-card>                
             </ion-col>
-        </ion-row>
+          </ion-row>                   
       </ion-grid>
-
+      <ion-fab right bottom>
+          <button ion-fab color="danger"><ion-icon name="md-share"></ion-icon></button>
+          <ion-fab-list side="top">
+            <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-whatsapp"></ion-icon></button>
+          </ion-fab-list>
+      </ion-fab>     
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutosProvider } from '../../providers/produtos/produtos';
+import { ProductPage } from '../product/product';
 
 /**
  * Generated class for the ProdutoCategoriasPage page.
@@ -45,4 +46,7 @@ export class ProdutoCategoriasPage {
     )
   }
 
+  goToProductPage(produto) {    
+    this.navCtrl.push(ProductPage, { id: produto.id })
+  }
 }

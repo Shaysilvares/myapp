@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ProductPage } from "../product/product";
 import { ProdutosProvider } from '../../providers/produtos/produtos';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -23,7 +24,11 @@ export class HomePage {
   goToProductPage(produto) {    
     this.navCtrl.push(ProductPage, { id: produto.id })
   }
-
+  
+  goToLoginPage() {    
+    this.navCtrl.push(LoginPage)
+  }
+  
   ionViewDidLoad() {
     this.produtosProvider.getProdutos().subscribe(
       data =>{
@@ -34,5 +39,6 @@ export class HomePage {
       }
     )
   }
+
 
 }

@@ -23,7 +23,7 @@ export class ProdutosProvider {
   }
 
   getProdutosCategoria(categoriaId) {
-    return this.http.get(`https://dev.autodicas.com/api/produtos/${categoriaId}`);
+    return this.http.get(`https://dev.autodicas.com/api/categoria/${categoriaId}`);
   }
 
 }

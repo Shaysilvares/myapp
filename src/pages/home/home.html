@@ -18,4 +18,9 @@
             <p>R$ {{ produto.valor_format }}</p>
           </ion-item>        
     </ion-card>
+    <ion-fab center bottom>
+      <button ion-fab (click)="goToLoginPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
 </ion-content>

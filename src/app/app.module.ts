@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http'; 
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +18,10 @@ import { CategoriasPage } from '../pages/categorias/categorias';
 import { CategoriasProvider } from '../providers/categorias/categorias';
 import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categorias';
 import { LoginPage } from '../pages/login/login';
+import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
+import { LoginProvider } from '../providers/login/login';
+import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-usuario';
+
 
 @NgModule({
   declarations: [
@@ -25,14 +30,16 @@ import { LoginPage } from '../pages/login/login';
     CategoriasPage,
     TabsPage,
     ProdutoCategoriasPage,
-    LoginPage
+    LoginPage,
+    CadastroUsuarioPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ProductPageModule,
     HttpModule, 
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,14 +49,17 @@ import { LoginPage } from '../pages/login/login';
     CategoriasPage,
     TabsPage,
     ProdutoCategoriasPage,
-    LoginPage
+    LoginPage,
+    CadastroUsuarioPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProdutosProvider,
-    CategoriasProvider
+    CategoriasProvider,
+    LoginProvider,
+    CadastroUsuarioProvider
   ]
 })
 export class AppModule {}

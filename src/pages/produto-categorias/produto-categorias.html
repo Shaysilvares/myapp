@@ -14,15 +14,14 @@
 
 
 <ion-content>
-    <ion-card *ngFor="let produto of produtosCategoria">
-        <ion-item>
+    <ion-card *ngFor="let produto of produtosCategoria" >
+        <ion-item (click)="goToProductPage(produto)">
             <ion-thumbnail item-start>
               <img src="https://dev.autodicas.com/{{ produto.imagem }}">
             </ion-thumbnail>
             <h2>{{ produto.titulo }}</h2>
             <p *ngFor="let loja of produto.loja" ><strong>Vendedor:</strong> {{ loja.razao_social }}</p>
-            <p>R$ {{ produto.valor_format }}</p>
-            <button ion-button clear item-end (click)="goToProductPage(produto)">View</button>
+            <p>R$ {{ produto.valor }}</p>
           </ion-item>        
     </ion-card>
 </ion-content>
