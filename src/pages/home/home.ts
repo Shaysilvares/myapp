@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProductPage } from "../product/product";
 import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { LoginPage } from '../login/login';
+import { CategoriasPage } from '../categorias/categorias';
 
 @Component({
   selector: 'page-home',
@@ -17,6 +18,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     private produtosProvider: ProdutosProvider) {
 
   }
@@ -40,5 +42,10 @@ export class HomePage {
     )
   }
 
-
+  openModal() {
+    let modal = this.modalCtrl.create(CategoriasPage, null, {
+      cssClass:"my-modal"
+  })
+    modal.present();
+  }
 }

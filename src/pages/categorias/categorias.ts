@@ -35,6 +35,8 @@ export class CategoriasPage {
     this.categoriasProvider.getCategorias().subscribe(
       data => {
         this.listaCategoria = (data as any);
+      }, error => {
+        console.log(error);
       }
     )
   }

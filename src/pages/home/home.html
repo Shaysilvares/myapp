@@ -7,7 +7,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>     
+<ion-content>
+    <div padding>
+        <ion-segment>
+          <ion-segment-button (click)="openModal()">
+            Categorias
+          </ion-segment-button>
+          <ion-segment-button (click)="openModal()">
+            Lojas
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
     <ion-card *ngFor="let produto of lista_produtos">
         <ion-item (click)="goToProductPage(produto)">
             <ion-thumbnail item-start>

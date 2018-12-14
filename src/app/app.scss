@@ -22,3 +22,16 @@ $fa-font-path: "../assets/fonts" !default;
 i[class^="fa-"], ion-icon[class^="fa-"] {    
    font-family: "FontAwesome" !important;
 }
+
+@media only screen and (orientation: landscape)  {
+   .my-modal {
+    .modal-wrapper {
+      position: absolute;
+      top: 0 !important;
+      left: 0 !important;
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    } 
+  }
+}
