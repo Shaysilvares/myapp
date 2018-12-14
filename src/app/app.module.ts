@@ -23,6 +23,7 @@ import { LoginProvider } from '../providers/login/login';
 import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-usuario';
 import { LojaPage } from '../pages/loja/loja';
 import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
     LoginPage,
     CadastroUsuarioPage,
     LojaPage,
-    DetalheLojaPage
+    DetalheLojaPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
     LoginPage,
     CadastroUsuarioPage,
     LojaPage,
-    DetalheLojaPage
+    DetalheLojaPage,
+    DashboardPage
   ],
   providers: [
     StatusBar,

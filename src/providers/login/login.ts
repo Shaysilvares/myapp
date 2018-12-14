@@ -26,8 +26,12 @@ export class LoginProvider {
     return this.storage.get(chave);
   }
 
-  buscarUsuario(data:IUsuario) {
+  /* buscarUsuario(data:IUsuario) {
     return this.http.get<IUsuario>(this.url + 'usuarios/'+ data.id);
+  } */
+
+  adicionarUsuario(data:IUsuario) {
+    return this.http.post<IUsuario>("http://localhost:3000/usuarios", data);
   }
 
 }

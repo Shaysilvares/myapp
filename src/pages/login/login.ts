@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LoginProvider } from '../../providers/login/login';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { IUsuario } from '../../../interfaces/IUsuario';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the LoginPage page.
@@ -35,13 +35,14 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   }
 
-  buscarUsuario() {
+  /* buscarUsuario() {
     this.loginProvider.getStorage("usuario").then(usuario => {
       if(usuario) {
         this.usuario = usuario;
         this.loginProvider.buscarUsuario(usuario).subscribe(
           data => {
             this.usuario = data;
+            
           }, error => {
             console.log(error);
           }
@@ -50,5 +51,16 @@ export class LoginPage {
         
       }
     });
-  }
+  } */
+
+  addUsuario() {
+    this.loginProvider.adicionarUsuario(this.usuario).subscribe(
+      data => {
+        this.loginProvider.setStorage("usuario", data);
+        this.navCtrl.push(DashboardPage);
+        console.log(data);
+      }, error => {
+        console.log(error);
+      });
+    }
 }
