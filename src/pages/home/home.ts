@@ -5,7 +5,6 @@ import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { LoginPage } from '../login/login';
 import { CategoriasPage } from '../categorias/categorias';
 import { LojaPage } from '../loja/loja';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +14,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   ]
 })
 export class HomePage {
-  public lista_produtos = new Array<any>();  
+  public lista_produtos = new Array<any>(); 
+  public isSearchbarOpened = false; 
 
   constructor(
     public navCtrl: NavController,
@@ -24,16 +24,10 @@ export class HomePage {
     public viewCtrl: ViewController,
     private produtosProvider: ProdutosProvider) {
 
+      this.initializeItems();
+
   }
 
-  goToProductPage(produto) {    
-    this.navCtrl.push(ProductPage, { id: produto.id })
-  }
-  
-  goToLoginPage() {    
-    this.navCtrl.push(LoginPage)
-  }
-  
   ionViewDidLoad() {
     this.produtosProvider.getProdutos().subscribe(
       data =>{
@@ -45,6 +39,16 @@ export class HomePage {
     )
   }
 
+  /* pages */
+  goToProductPage(produto) {    
+    this.navCtrl.push(ProductPage, { id: produto.id })
+  }
+  
+  goToLoginPage() {    
+    this.navCtrl.push(LoginPage)
+  }
+  
+  /* modal */
   openModalCategorias() {
     let modal = this.modalCtrl.create(CategoriasPage, null, {
       cssClass:"my-modal"
@@ -57,5 +61,22 @@ export class HomePage {
       cssClass:"my-modal"
   })
     modal.present();
+  }
+
+  /* search */
+  initializeItems() {
+    this.lista_produtos;
+  }
+
+  getItems(ev: any) {
+    this.initializeItems();
+
+    const val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.lista_produtos = this.lista_produtos.filter((item) => {
+        return (item.titulo.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
   }
 }

@@ -29,11 +29,8 @@
             <p> {{detalheProduto.descricao }} </p>
           </ion-col>
           <ion-col col-12>
+              <h4>Localização</h4>
               <ion-card *ngFor="let loja of detalheProduto.loja">
-                  <ion-card-header>
-                    Localização
-                  </ion-card-header>
-                
                   <ion-card-content>
                       <ion-list>Loja: {{ loja.razao_social }}</ion-list>
                       <ion-list>Telefone: </ion-list>
@@ -43,17 +40,14 @@
                       <ion-list>Cidade: </ion-list>
                   </ion-card-content>                
                 </ion-card>
-
-              <ion-card>
-                  <ion-card-header>
-                    Dicas de segurança
-                  </ion-card-header>
-                
+              
+              <h4>Dicas de segurança</h4> 
+              <ion-card>                  
                   <ion-card-content>
-                      <ion-list>Ligue para loja</ion-list>
-                      <ion-list>Diga que viu no autodicas</ion-list> 
-                      <ion-list>Confirme se tem o produto</ion-list> 
-                      <ion-list>Confirme o preço</ion-list>
+                      <ion-list><ion-icon name="checkmark"></ion-icon> Ligue para loja</ion-list>
+                      <ion-list><ion-icon name="checkmark"></ion-icon> Diga que viu no autodicas</ion-list> 
+                      <ion-list><ion-icon name="checkmark"></ion-icon> Confirme se tem o produto</ion-list> 
+                      <ion-list><ion-icon name="checkmark"></ion-icon> Confirme o preço</ion-list>
                   </ion-card-content>                
                 </ion-card>                
             </ion-col>
