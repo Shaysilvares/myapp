@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { DetalheLojaPage } from '../detalhe-loja/detalhe-loja';
 
 /**
  * Generated class for the LojaPage page.
@@ -15,11 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LojaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public viewCtrl: ViewController,
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LojaPage');
+  }
+
+  closeModalLojas() {
+    this.viewCtrl.dismiss();
+  }
+
+  goToDetalheLojaPage() {    
+    this.navCtrl.push(DetalheLojaPage);
   }
 
 }

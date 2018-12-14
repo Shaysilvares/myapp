@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Loja</ion-title>
+    <ion-title>Lojas</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModalLojas()">
+        Close
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <ion-card>
+    <ion-item (click)="goToDetalheLojaPage()">
+        <ion-thumbnail item-start>
+          <img src="https://dev.autodicas.com/img/lojas/2//_logo_99912.jpeg">
+        </ion-thumbnail>
+        <h2>Loja teste</h2>
+        <p><strong>Endereço:</strong> Rua Messias de Souza, 74</p>
+        <p>Centro - Belford roxo</p>
+      </ion-item>        
+  </ion-card>
 </ion-content>

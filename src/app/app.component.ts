@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { CategoriasPage } from '../pages/categorias/categorias';
 import { LoginPage } from '../pages/login/login';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
 
@@ -26,7 +25,6 @@ export class MyApp {
       { title: 'Home', component: HomePage },      
       { title: 'Cadastre-se', component: CadastroUsuarioPage },
       { title: 'Login', component: LoginPage },
-      { title: 'Categorias', component: CategoriasPage }
       
     ];
 

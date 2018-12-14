@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { LoginProvider } from '../../providers/login/login';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { IUsuario } from '../../../interfaces/IUsuario';
 
 /**
  * Generated class for the LoginPage page.
@@ -13,17 +16,39 @@ import { HomePage } from '../home/home';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers: [
+    LoginProvider
+  ]
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  usuario:IUsuario = {email:'',senha:''};
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loginProvider: LoginProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
   }
 
   goToHomePage() {    
     this.navCtrl.setRoot(HomePage);
+  }
+
+  buscarUsuario() {
+    this.loginProvider.getStorage("usuario").then(usuario => {
+      if(usuario) {
+        this.usuario = usuario;
+        this.loginProvider.buscarUsuario(usuario).subscribe(
+          data => {
+            this.usuario = data;
+          }, error => {
+            console.log(error);
+          }
+        )
+      } else {
+        
+      }
+    });
   }
 }

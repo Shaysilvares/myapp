@@ -33,6 +33,7 @@ export class CadastroUsuarioPage {
   addUsuario() {
   this.cadastroUsuarioProvider.adicionarUsuario(this.usuario).subscribe(
     data => {
+      this.cadastroUsuarioProvider.setStorage("usuario", data);
       console.log(data);
     }, error => {
       console.log(error);

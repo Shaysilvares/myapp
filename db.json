@@ -1,12 +1,31 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-
-    "usuarios": []
-  }
-
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "usuarios": [
+    {
+      "email": "uyuy",
+      "senha": "uyuy",
+      "id": 1
+    },
+    {
+      "email": "gfgf",
+      "senha": "gfgf",
+      "id": 2
+    }
+  ]
+}

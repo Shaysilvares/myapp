@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUsuario } from '../../../interfaces/IUsuario';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the CadastroUsuarioProvider provider.
@@ -13,12 +14,21 @@ export class CadastroUsuarioProvider {
     headers:any;
   constructor(
     public http: HttpClient,
+    private storage: Storage
     ) {
     console.log('Hello CadastroUsuarioProvider Provider');
-    //this.headers = {"headers": {"authorization": "Bearer "+ this.token}}      
+    //this.headers = {"headers": {"authorization": "Bearer "+ this.token}}
     }
 
   adicionarUsuario(data:IUsuario) {
     return this.http.post<IUsuario>("http://localhost:3000/usuarios", data);
+  }
+
+  setStorage(chave: string, valor: any) {
+    this.storage.set(chave, valor);
+  }
+
+  getStorage(chave: string) {
+    return this.storage.get(chave);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { CategoriasProvider } from '../../providers/categorias/categorias';
 import { HomePage } from '../home/home';
 import { ProdutosProvider } from '../../providers/produtos/produtos';
@@ -27,6 +27,7 @@ export class CategoriasPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    public viewCtrl: ViewController,
     public categoriasProvider: CategoriasProvider,
     public produtoProvider: ProdutosProvider) {
   }
@@ -44,6 +45,10 @@ export class CategoriasPage {
   itemClicked(categorias) {
     this.navCtrl.push(ProdutoCategoriasPage, { id: categorias.id })
     console.log(categorias.id);
+  }
+
+  closeModalCategorias() {
+    this.viewCtrl.dismiss();
   }
 
 }

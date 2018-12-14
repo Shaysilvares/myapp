@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { ProductPage } from "../product/product";
 import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { LoginPage } from '../login/login';
 import { CategoriasPage } from '../categorias/categorias';
+import { LojaPage } from '../loja/loja';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'page-home',
@@ -19,6 +21,7 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
+    public viewCtrl: ViewController,
     private produtosProvider: ProdutosProvider) {
 
   }
@@ -42,8 +45,15 @@ export class HomePage {
     )
   }
 
-  openModal() {
+  openModalCategorias() {
     let modal = this.modalCtrl.create(CategoriasPage, null, {
+      cssClass:"my-modal"
+  })
+    modal.present();
+  }
+
+  openModalLojas() {
+    let modal = this.modalCtrl.create(LojaPage, null, {
       cssClass:"my-modal"
   })
     modal.present();
