@@ -15,10 +15,10 @@
 
 <ion-content>
 
-  <ion-grid>
+  <ion-grid *ngIf="detalheLoja">
     <ion-row>
       <ion-col col-12>
-        <h4> loja Teste </h4>
+        <h4> {{detalheLoja.razao_social}} </h4>
         <img src="https://dev.autodicas.com/img/lojas/2//_logo_99912.jpeg">
       </ion-col>
     </ion-row>
@@ -44,26 +44,12 @@
     <ion-row>
       <ion-col padding col-12>
         <h4>Anuncios do vendedor</h4>
-        <ion-slides>
-          <ion-slide>
+        <ion-slides autoplay="3000" loop="true" speed="3000">
+          <ion-slide *ngFor="let produto of detalheLoja">
             <ion-card>
-              <ion-img width="160" height="160" src="https://dev.autodicas.com/img/produtos/2/tmpphpe502zg//_img_81043.jpeg"></ion-img>
-              <div class="card-title">Produto x </div>
-              <div class="card-subtitle">R$ 10,00</div>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card>
-              <ion-img width="160" height="160" src="https://dev.autodicas.com/img/produtos/2/tmpphpr8lo7z//_img_67404.png"></ion-img>
-              <div class="card-title">Produto y </div>
-              <div class="card-subtitle">R$ 20,00</div>
-            </ion-card>
-          </ion-slide>
-          <ion-slide>
-            <ion-card>
-              <ion-img width="160" height="160" src="https://dev.autodicas.com/img/produtos/3//_img_11694.jpeg"></ion-img>
-              <div class="card-title">Produto x </div>
-              <div class="card-subtitle">R$ 30,00</div>
+              <img class="imgFormat" src="https://dev.autodicas.com/{{produto.imagem}}">
+              <div class="card-title">{{produto.titulo}} </div>
+              <div class="card-subtitle"><strong>{{produto.valor}}</strong></div>
             </ion-card>
           </ion-slide>
         </ion-slides>

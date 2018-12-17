@@ -18,14 +18,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-item (click)="goToDetalheLojaPage()">
+  <ion-card *ngFor="let loja of listaLojas">
+    <ion-item (click)="goToDetalheLojaPage(loja)">
         <ion-thumbnail item-start>
-          <img src="https://dev.autodicas.com/img/lojas/2//_logo_99912.jpeg">
+          <img src="https://dev.autodicas.com/{{loja.loja_imagem}}">
         </ion-thumbnail>
-        <h2>Loja teste</h2>
-        <p><strong>Endereço:</strong> Rua Messias de Souza, 74</p>
-        <p>Centro - Belford roxo</p>
+        <h2>{{loja.razao_social}}</h2>
+        <p><strong>Endereço:</strong> {{loja.endereco}}, {{loja.numero}}</p>
+        <p> {{loja.bairro}} - Belford roxo </p>
       </ion-item>        
   </ion-card>
 </ion-content>

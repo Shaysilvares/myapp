@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutosProvider } from '../../providers/produtos/produtos';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the ProductPage page.
@@ -21,11 +22,16 @@ import { ProdutosProvider } from '../../providers/produtos/produtos';
 export class ProductPage {
   private detalheProdutoId;
   public detalheProduto;
+
+  private mensagem: string;
+  private imagem: string;
+  private url: string;
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public produtoProvider: ProdutosProvider) {
+    public produtoProvider: ProdutosProvider,
+    public socialSharing: SocialSharing) {
       
   }
 
@@ -40,6 +46,15 @@ export class ProductPage {
         console.log(error);
       }
     )
+  }
+
+  /* compartilhamento via social media */
+  whatsappShare() {
+    this.socialSharing.share("teste", null, "teste", 'https:autodicas.com').then(()=> {
+      console.log("sucesso");
+    }).catch(()=>{
+      console.log("error");
+    });
   }
 
 }

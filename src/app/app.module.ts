@@ -24,6 +24,8 @@ import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-
 import { LojaPage } from '../pages/loja/loja';
 import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { LojaProvider } from '../providers/loja/loja';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
     ProdutosProvider,
     CategoriasProvider,
     LoginProvider,
-    CadastroUsuarioProvider
+    CadastroUsuarioProvider,
+    LojaProvider,
+    SocialSharing
   ]
 })
 export class AppModule {}
