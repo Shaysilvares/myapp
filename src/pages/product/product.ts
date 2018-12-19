@@ -15,7 +15,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
   selector: 'page-product',
   templateUrl: 'product.html',
   providers: [
-    ProdutosProvider
+    ProdutosProvider,
+    SocialSharing
   ]
   
 })
@@ -32,6 +33,8 @@ export class ProductPage {
     public navParams: NavParams,
     public produtoProvider: ProdutosProvider,
     public socialSharing: SocialSharing) {
+      this.imagem = "https://dev.autodicas.com/img/produtos/2/tmpphpe502zg//_img_81043.jpeg";
+      this.url= "https:autodicas.com";
       
   }
 
@@ -50,10 +53,10 @@ export class ProductPage {
 
   /* compartilhamento via social media */
   whatsappShare() {
-    this.socialSharing.share("teste", null, "teste", 'https:autodicas.com').then(()=> {
-      console.log("sucesso");
-    }).catch(()=>{
-      console.log("error");
+  this.socialSharing.shareViaWhatsApp("teste", this.imagem, this.url).then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
     });
   }
 

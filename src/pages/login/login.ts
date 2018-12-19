@@ -35,24 +35,6 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   }
 
-  /* buscarUsuario() {
-    this.loginProvider.getStorage("usuario").then(usuario => {
-      if(usuario) {
-        this.usuario = usuario;
-        this.loginProvider.buscarUsuario(usuario).subscribe(
-          data => {
-            this.usuario = data;
-            
-          }, error => {
-            console.log(error);
-          }
-        )
-      } else {
-        
-      }
-    });
-  } */
-
   addUsuario() {
     this.loginProvider.adicionarUsuario(this.usuario).subscribe(
       data => {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { CategoriasProvider } from '../../providers/categorias/categorias';
-import { HomePage } from '../home/home';
 import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { ProdutoCategoriasPage } from '../produto-categorias/produto-categorias';
 
@@ -22,7 +21,7 @@ import { ProdutoCategoriasPage } from '../produto-categorias/produto-categorias'
   ]
 })
 export class CategoriasPage {
-  private listaCategoria;
+  private listaCategoria: any;
 
   constructor(
     public navCtrl: NavController, 

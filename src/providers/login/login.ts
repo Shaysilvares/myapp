@@ -31,7 +31,7 @@ export class LoginProvider {
   } */
 
   adicionarUsuario(data:IUsuario) {
-    return this.http.post<IUsuario>("http://localhost:3000/usuarios", data);
+    return this.http.post<IUsuario>("http://localhost:3000/usuarios/", data);
   }
 
 }
