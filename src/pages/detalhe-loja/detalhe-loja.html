@@ -19,7 +19,7 @@
     <ion-row>
       <ion-col col-12>
         <h4> {{detalheLoja.razao_social}} </h4>
-        <img src="https://dev.autodicas.com/img/lojas/2//_logo_99912.jpeg">
+        <img src="https://dev.autodicas.com/{{detalheLoja.loja_imagem}}">
       </ion-col>
     </ion-row>
 
@@ -32,10 +32,10 @@
 
           <ion-card-content>
             <ion-list>Telefone: </ion-list>
-            <ion-list>CEP: 26130-280</ion-list>
-            <ion-list>Endereço: Rua Messias de Souza, 17</ion-list>
-            <ion-list>Bairro: Centro</ion-list>
-            <ion-list>Cidade: Belford Roxo - RJ </ion-list>
+            <ion-list>CEP: {{detalheLoja.cep}} </ion-list>
+            <ion-list>Endereço: {{detalheLoja.endereco}}, {{detalheLoja.numero}}</ion-list>
+            <ion-list>Bairro: {{detalheLoja.bairro}}</ion-list>
+            <ion-list>Cidade:  </ion-list>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -44,8 +44,8 @@
     <ion-row>
       <ion-col padding col-12>
         <h4>Anuncios do vendedor</h4>
-        <ion-slides autoplay="3000" loop="true" speed="3000">
-          <ion-slide *ngFor="let produto of detalheLoja">
+          <ion-slides *ngIf="produtosLoja" autoplay="3000" loop="true" speed="3000">
+          <ion-slide *ngFor="let produto of produtosLoja">
             <ion-card>
               <img class="imgFormat" src="https://dev.autodicas.com/{{produto.imagem}}">
               <div class="card-title">{{produto.titulo}} </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LojaProvider } from '../../providers/loja/loja';
+import { ProdutosProvider } from '../../providers/produtos/produtos';
 
 /**
  * Generated class for the DetalheLojaPage page.
@@ -14,17 +15,20 @@ import { LojaProvider } from '../../providers/loja/loja';
   selector: 'page-detalhe-loja',
   templateUrl: 'detalhe-loja.html',
   providers: [
-    LojaProvider
+    LojaProvider,
+    ProdutosProvider
   ]
 })
 export class DetalheLojaPage {
   public detalheLoja;
   public detalheLojaId;
+  public produtosLoja;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public lojaProvider: LojaProvider) {
+    public lojaProvider: LojaProvider,
+    public produtoProvider: ProdutosProvider) {
   }
 
   ionViewDidLoad() {
@@ -33,15 +37,23 @@ export class DetalheLojaPage {
 
   ionViewDidEnter() {
     this.detalheLojaId = this.navParams.get("id");
-    this.lojaProvider.getProdutoLojas(this.detalheLojaId).subscribe(
+    this.lojaProvider.getLoja(this.detalheLojaId).subscribe(
       data => {
         let retorno = (data as any);
         this.detalheLoja = retorno;
-        console.log(this.detalheLoja);
       }, error => {
         console.log(error);
       }
-    )
-  }
+    );
+
+    this.produtoProvider.getProdutosLoja(this.detalheLojaId).subscribe(
+      data => {
+        let produtos = (data as any);
+        this.produtosLoja = produtos;
+      }, error => {
+        console.log(error);
+      }
+    );
+  } 
 
 }
