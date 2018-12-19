@@ -18,7 +18,7 @@ export class LojaProvider {
     return this.http.get("https://dev.autodicas.com/api/lojas");
   }
 
-  getProdutoLojas(lojaId: any) {
+  getLoja(lojaId: any) {
     return this.http.get(`https://dev.autodicas.com/api/loja/${lojaId}`);
   }
 

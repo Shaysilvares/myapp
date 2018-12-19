@@ -26,4 +26,8 @@ export class ProdutosProvider {
     return this.http.get(`https://dev.autodicas.com/api/categoria/${categoriaId}`);
   }
 
+  getProdutosLoja(lojaId: any) {
+    return this.http.get(`https://dev.autodicas.com/api/produtos/loja/${lojaId}`);
+  }
+
 }
