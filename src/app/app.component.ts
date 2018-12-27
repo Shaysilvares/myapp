@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
+import { CadastroLojaPage } from '../pages/cadastro-loja/cadastro-loja';
+import { CadastroProdutoPage } from '../pages/cadastro-produto/cadastro-produto';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +27,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },      
       { title: 'Cadastre-se', component: CadastroUsuarioPage },
       { title: 'Login', component: LoginPage },
-      
+      { title: 'Produto', component: CadastroProdutoPage}
     ];
 
   }

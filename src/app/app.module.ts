@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http'; 
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -26,6 +27,9 @@ import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LojaProvider } from '../providers/loja/loja';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { CadastroProdutoPage } from '../pages/cadastro-produto/cadastro-produto';
+
+
 
 
 @NgModule({
@@ -39,7 +43,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     CadastroUsuarioPage,
     LojaPage,
     DetalheLojaPage,
-    DashboardPage
+    DashboardPage,
+    CadastroProdutoPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     CadastroUsuarioPage,
     LojaPage,
     DetalheLojaPage,
-    DashboardPage
+    DashboardPage,
+    CadastroProdutoPage
   ],
   providers: [
     StatusBar,
@@ -72,7 +78,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     LoginProvider,
     CadastroUsuarioProvider,
     LojaProvider,
-    SocialSharing
+    SocialSharing,
+    Camera
   ]
 })
 export class AppModule {}
