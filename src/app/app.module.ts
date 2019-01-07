@@ -28,6 +28,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LojaProvider } from '../providers/loja/loja';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { CadastroProdutoPage } from '../pages/cadastro-produto/cadastro-produto';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 
@@ -79,7 +80,8 @@ import { CadastroProdutoPage } from '../pages/cadastro-produto/cadastro-produto'
     CadastroUsuarioProvider,
     LojaProvider,
     SocialSharing,
-    Camera
+    Camera,
+    GoogleMaps
   ]
 })
 export class AppModule {}

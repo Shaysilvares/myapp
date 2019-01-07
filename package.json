@@ -25,7 +25,8 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/camera": "^4.18.0",
-    "@ionic-native/core": "~4.17.0",
+    "@ionic-native/core": "^4.19.0",
+    "@ionic-native/google-maps": "^4.15.1",
     "@ionic-native/social-sharing": "^4.18.0",
     "@ionic-native/splash-screen": "~4.17.0",
     "@ionic-native/status-bar": "~4.17.0",
@@ -69,6 +70,10 @@
       "cordova-plugin-camera": {
         "CAMERA_USAGE_DESCRIPTION": "your usage message",
         "PHOTOLIBRARY_USAGE_DESCRIPTION": "your usage message"
+      },
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M",
+        "API_KEY_FOR_IOS": "AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M"
       }
     },
     "platforms": [

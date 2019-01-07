@@ -87,6 +87,10 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="your usage message" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="~2.4.6">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M" />
+    </plugin>
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="7.1.4" />
 </widget>
