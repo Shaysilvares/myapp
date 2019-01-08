@@ -7,15 +7,11 @@ import {
   GoogleMap,
   Marker,
   Geocoder,
-  GeocoderResult
+  GeocoderResult,
+  GoogleMapOptions,
+  GoogleMapsMapTypeId
 } from '@ionic-native/google-maps';
-
-/**
- * Generated class for the ProductPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -37,7 +33,6 @@ export class ProductPage {
   private url: string;
 
   /*mapa */
-  search_address: any;
   map: GoogleMap;
   isRunning: boolean;
   endereco: string;
@@ -56,7 +51,7 @@ export class ProductPage {
   ionViewDidEnter() {
     this.detalheProdutoId = this.navParams.get("id");
     this.produtoProvider.getDetalheProdutos(this.detalheProdutoId).subscribe(
-      (data: any) => {        
+      (data: any) => {
         let retorno = (data as any);
         this.detalheProduto = retorno;
 
@@ -64,22 +59,12 @@ export class ProductPage {
         data.loja.forEach(element => {
           this.endereco = element.endereco + ", " + element.numero + " Belford Roxo - Rio de Janeiro, Brasil"
           this.loja_nome = element.razao_social;
-        });        
+        });
         this.loadMap(this.endereco, this.loja_nome);
-        this.map = GoogleMaps.create('map_canvas');
       }, error => {
         console.log(error);
       }
     )
-  }
-
-  /* compartilhamento via social media */
-  whatsappShare() {
-    this.socialSharing.shareViaWhatsApp(this.detalheProduto.titulo, this.detalheProduto.imagem, this.url).then(res => {
-      console.log(res);
-    }).catch(error => {
-      console.log(error);
-    });
   }
 
   /* Mapa */
@@ -96,21 +81,39 @@ export class ProductPage {
         return null;
       }
 
+      let mapOptions: GoogleMapOptions = {
+        camera: {
+          target: results[0].position,
+          zoom: 16
+        },
+        mapType: GoogleMapsMapTypeId.NORMAL,
+        controls: {
+          compass: true,
+          myLocationButton: true,
+          indoorPicker: true,
+          zoom: true
+        }
+      };
+      this.map = GoogleMaps.create('map_canvas', mapOptions);
+
       // Add a marker
       let marker: Marker = this.map.addMarkerSync({
         'position': results[0].position,
         'title': loja_nome
       });
-
-      // Move to the position
-      this.map.animateCamera({
-        'target': marker.getPosition(),
-        'zoom': 17
-      }).then(() => {
-        marker.showInfoWindow();
-        this.isRunning = false;
-      }); 
     });
   }
 
+  /* compartilhamento via social media */
+  whatsappShare() {
+    this.socialSharing.shareViaWhatsApp("teste", this.imagem, this.url).then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
+  close() {
+    this.navCtrl.setRoot(HomePage);
+  }
 }

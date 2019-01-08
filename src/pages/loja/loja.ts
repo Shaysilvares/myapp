@@ -39,12 +39,7 @@ export class LojaPage {
     );
   }
 
-  closeModalLojas() {
-    this.viewCtrl.dismiss();
-  }
-
   goToDetalheLojaPage(loja) {    
     this.navCtrl.push(DetalheLojaPage, {id:loja.id});
   }
-
 }

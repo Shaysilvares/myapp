@@ -29,17 +29,13 @@ export class ProdutoCategoriasPage {
     
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProdutoCategoriasPage');
-  }
-
   ionViewDidEnter() {
     this.categoriaId = this.navParams.get("id");
     this.produtoProvider.getProdutosCategoria(this.categoriaId).subscribe(
       data => {
         let retorno = (data as Array<any>);
         this.produtosCategoria = retorno;
-        console.log(this.produtosCategoria);
+        
       }, error => {
         console.log(error);
       }

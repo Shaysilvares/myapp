@@ -7,8 +7,10 @@ import {
   GoogleMap,
   Marker,
   Geocoder,
-  GeocoderResult
+  GeocoderResult,
+  GoogleMapOptions
 } from '@ionic-native/google-maps';
+import { HomePage } from '../home/home';
 
 
 /**
@@ -32,8 +34,7 @@ export class DetalheLojaPage {
   public detalheLojaId;
   public produtosLoja;
 
-    /*mapa */
-    search_address: any;
+    /*mapa */    
     map: GoogleMap;
     isRunning: boolean;
     endereco: string;
@@ -55,10 +56,8 @@ export class DetalheLojaPage {
         
         this.endereco = this.detalheLoja.endereco + ", " + this.detalheLoja.numero + " Belford Roxo - Rio de Janeiro, Brasil"
         this.loja_nome = this.detalheLoja.razao_social;
-
-        this.search_address = this.endereco;
-        this.loadMap(this.search_address, this.loja_nome);
-        this.map = GoogleMaps.create('map_canvas');
+        
+        this.loadMap(this.endereco, this.loja_nome);
       }, error => {
         console.log(error);
       }
@@ -88,21 +87,23 @@ export class DetalheLojaPage {
         return null;
       }
 
+      let mapOptions: GoogleMapOptions = {
+        camera: {
+           target: results[0].position,
+           zoom: 16
+         }
+      };
+      this.map = GoogleMaps.create('map_canvas', mapOptions);
+
       // Add a marker
       let marker: Marker = this.map.addMarkerSync({
         'position': results[0].position,
         'title': loja_nome
       });
-
-      // Move to the position
-      this.map.animateCamera({
-        'target': marker.getPosition(),
-        'zoom': 17
-      }).then(() => {
-        marker.showInfoWindow();
-        this.isRunning = false;
-      });
     });
   }
 
+  close() {
+    this.navCtrl.setRoot(HomePage);
+  }
 }

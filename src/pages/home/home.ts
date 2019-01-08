@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController, ModalOptions } from 'ionic-angular';
 import { ProductPage } from "../product/product";
 import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { LoginPage } from '../login/login';
@@ -23,9 +23,7 @@ export class HomePage {
     public modalCtrl: ModalController,
     public viewCtrl: ViewController,
     private produtosProvider: ProdutosProvider) {
-
       this.initializeItems();
-
   }
 
   ionViewDidLoad() {
@@ -50,17 +48,11 @@ export class HomePage {
   
   /* modal */
   openModalCategorias() {
-    let modal = this.modalCtrl.create(CategoriasPage, null, {
-      cssClass:"my-modal"
-  })
-    modal.present();
+    this.navCtrl.push(CategoriasPage);
   }
 
   openModalLojas() {
-    let modal = this.modalCtrl.create(LojaPage, null, {
-      cssClass:"my-modal"
-  })
-    modal.present();
+    this.navCtrl.push(LojaPage);
   }
 
   /* search */

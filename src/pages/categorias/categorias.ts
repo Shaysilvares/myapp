@@ -34,20 +34,14 @@ export class CategoriasPage {
   ionViewDidLoad() {
     this.categoriasProvider.getCategorias().subscribe(
       data => {
-        this.listaCategoria = (data as any);
+        this.listaCategoria = (data as any);        
       }, error => {
         console.log(error);
       }
     )
   }
-
+  
   itemClicked(categorias) {
-    this.navCtrl.push(ProdutoCategoriasPage, { id: categorias.id })
-    console.log(categorias.id);
+    this.navCtrl.push(ProdutoCategoriasPage, { id: categorias.id });    
   }
-
-  closeModalCategorias() {
-    this.viewCtrl.dismiss();
-  }
-
 }

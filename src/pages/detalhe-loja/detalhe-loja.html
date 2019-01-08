@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>Detalhe da Loja</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -39,9 +44,9 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row>
-    
-    <div id="map_canvas"></div>
+      
+      <div id="map_canvas"></div>
+    </ion-row>   
 
     <ion-row>
       <ion-col padding col-12>
