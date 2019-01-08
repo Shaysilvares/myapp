@@ -40,18 +40,16 @@ export class HomePage {
   /* pages */
   goToProductPage(produto) {    
     this.navCtrl.push(ProductPage, { id: produto.id })
-  }
-  
+  }  
   goToLoginPage() {    
     this.navCtrl.push(LoginPage)
   }
   
-  /* modal */
-  openModalCategorias() {
+  /* segment */
+  openCategorias() {
     this.navCtrl.push(CategoriasPage);
   }
-
-  openModalLojas() {
+  openLojas() {
     this.navCtrl.push(LojaPage);
   }
 
@@ -59,7 +57,6 @@ export class HomePage {
   initializeItems() {
     this.lista_produtos;
   }
-
   getItems(ev: any) {
     this.initializeItems();
 
