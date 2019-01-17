@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, ViewController, ModalOptions } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { ProductPage } from "../product/product";
 import { ProdutosProvider } from '../../providers/produtos/produtos';
 import { LoginPage } from '../login/login';
@@ -67,5 +67,16 @@ export class HomePage {
         return (item.titulo.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  /* Infinite Scroll */
+  doInfinite(infiniteScroll) {
+    setTimeout(() => {
+      this.produtosProvider.getProdutos().subscribe(
+        data =>{
+          this.lista_produtos = this.lista_produtos.concat((data as Array<any>));
+          infiniteScroll.complete();
+      });
+    }, 500);    
   }
 }
