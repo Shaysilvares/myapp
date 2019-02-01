@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { IUsuario } from '../../../interfaces/IUsuario';
 import { CadastroUsuarioProvider } from '../../providers/cadastro-usuario/cadastro-usuario';
 import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the CadastroUsuarioPage page.
@@ -24,7 +25,8 @@ export class CadastroUsuarioPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public cadastroUsuarioProvider: CadastroUsuarioProvider) {
+    public cadastroUsuarioProvider: CadastroUsuarioProvider,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -34,9 +36,25 @@ export class CadastroUsuarioPage {
   addUsuario() {
   this.cadastroUsuarioProvider.adicionarUsuario(this.usuario).subscribe(
     data => {
-      this.cadastroUsuarioProvider.setStorage("usuario", data);
-      localStorage.setItem('token', data.token);
-      console.log(data);
+      if(data) {
+        if(data.token) {
+          this.cadastroUsuarioProvider.setStorage("usuario", data);
+          localStorage.setItem('token', data.token);
+          let toast = this.toastCtrl.create({
+          message: "Cadastro realizado com sucesso!",
+          duration: 2000,
+          position: 'bottom',
+          closeButtonText: 'Ok'
+        });
+          toast.present();
+          this.navCtrl.push(LoginPage);
+          console.log(data);
+        } else {          
+          console.log(data); //validação
+        }
+      } else {
+        //login com error
+      }      
     }, error => {
       console.log(error);
     });
