@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IUsuario } from '../../../interfaces/IUsuario';
 import { CadastroUsuarioProvider } from '../../providers/cadastro-usuario/cadastro-usuario';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CadastroUsuarioPage page.
@@ -19,7 +20,7 @@ import { CadastroUsuarioProvider } from '../../providers/cadastro-usuario/cadast
   ]
 })
 export class CadastroUsuarioPage {
-  usuario: IUsuario = {email:'', senha:''};
+  usuario: IUsuario = {email:'', password:''};
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -34,10 +35,15 @@ export class CadastroUsuarioPage {
   this.cadastroUsuarioProvider.adicionarUsuario(this.usuario).subscribe(
     data => {
       this.cadastroUsuarioProvider.setStorage("usuario", data);
+      localStorage.setItem('token', data.token);
       console.log(data);
     }, error => {
       console.log(error);
     });
+  }
+
+  cancelar() {
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

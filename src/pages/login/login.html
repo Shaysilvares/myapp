@@ -22,11 +22,11 @@
     
         <ion-item>
           <ion-label floating>Senha</ion-label>
-          <ion-input type="password" name="senha" [(ngModel)]="usuario.senha"></ion-input>
+          <ion-input type="password" name="senha" [(ngModel)]="usuario.password"></ion-input>
         </ion-item>    
       </ion-list>
     
       <div padding>
-        <button ion-button color="primary" block (click)="addUsuario()">Entrar</button>
+        <button ion-button color="primary" block (click)="doLogin()">Entrar</button>
       </div>   
 </ion-content>

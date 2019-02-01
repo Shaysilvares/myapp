@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class CadastroUsuarioProvider {
+    url:string = "http://localhost:8000/api/";
     headers:any;
   constructor(
     public http: HttpClient,
@@ -21,7 +22,7 @@ export class CadastroUsuarioProvider {
     }
 
   adicionarUsuario(data:IUsuario) {
-    return this.http.post<IUsuario>("http://localhost:3000/usuarios", data);
+    return this.http.post<IUsuario>(this.url + "cadastro", data);
   }
 
   setStorage(chave: string, valor: any) {

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
 
     <form>
         <ion-item>
@@ -22,9 +22,10 @@
         </ion-item>
         <ion-item>
           <ion-label floating>Senha</ion-label>
-          <ion-input type="password" name="senha" [(ngModel)]="usuario.senha"></ion-input>
+          <ion-input type="password" name="senha" [(ngModel)]="usuario.password"></ion-input>
         </ion-item>
         <button ion-button type="submit" block (click)="addUsuario()">Cadastrar</button>
+        <button ion-button color="light" block (click)="cancelar()">Voltar</button>
       </form>
 
 </ion-content>

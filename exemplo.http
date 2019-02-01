@@ -3,6 +3,8 @@ http://localhost:3000/usuarios
 ### 
 GET http://localhost:3000/usuarios/1
 
+GET http://localhost:3000/usuarios/
+
 ### 
 POST http://localhost:3000/cursos HTTP/1.1
 content-type: application/json

@@ -11,7 +11,7 @@ import { IUsuario } from '../../../interfaces/IUsuario';
 */
 @Injectable()
 export class LoginProvider {
-  url = "http://localhost:3000/";
+  url:string = "http://localhost:8000/api/";
   constructor(
     public http: HttpClient,
     private storage: Storage) {
@@ -30,8 +30,12 @@ export class LoginProvider {
     return this.http.get<IUsuario>(this.url + 'usuarios/'+ data.id);
   } */
 
-  adicionarUsuario(data:IUsuario) {
-    return this.http.post<IUsuario>("http://localhost:3000/usuarios/", data);
+  login(data:IUsuario) {
+    return this.http.post<IUsuario>(this.url + 'login', data);
+  }
+
+  showUsuario(data:IUsuario) {
+    return this.http.get<IUsuario>(this.url + 'usuarios', {"headers": {"authorization": "Baerer " + localStorage.getItem('token')}});
   }
 
 }

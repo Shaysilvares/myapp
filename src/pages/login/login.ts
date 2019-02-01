@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LoginProvider } from '../../providers/login/login';
 import { IUsuario } from '../../../interfaces/IUsuario';
@@ -21,11 +21,12 @@ import { DashboardPage } from '../dashboard/dashboard';
   ]
 })
 export class LoginPage {
-  usuario:IUsuario = {email:'',senha:''};
+  usuario:IUsuario = {email:'', password:''};
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public loginProvider: LoginProvider) {
+    public loginProvider: LoginProvider,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -35,13 +36,32 @@ export class LoginPage {
     this.navCtrl.setRoot(HomePage);
   }
 
-  addUsuario() {
-    this.loginProvider.adicionarUsuario(this.usuario).subscribe(
+  doLogin() {
+    this.loginProvider.login(this.usuario).subscribe(
       data => {
-        this.loginProvider.setStorage("usuario", data);
-        this.navCtrl.push(DashboardPage);
-        console.log(data);
+        if(data) {
+          if(data.token) {
+            this.loginProvider.setStorage("usuario", data);
+            localStorage.setItem('token', data.token);            
+            this.navCtrl.push(DashboardPage);
+            console.log(data);
+          } else {
+            /* let toast = this.toastCtrl.create({
+              message: "",
+              duration: 3000
+            });
+            toast.present(); */
+            console.log(data); //validação
+          }
+        } else {
+          //login com error
+        }
       }, error => {
+        let toast = this.toastCtrl.create({
+          message: "Login ou senha inválido",
+          duration: 3000
+        });
+        toast.present();
         console.log(error);
       });
     }
