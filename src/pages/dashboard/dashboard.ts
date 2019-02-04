@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { IUsuario } from '../../../interfaces/IUsuario';
 import { LoginProvider } from '../../providers/login/login';
 
@@ -24,7 +24,8 @@ export class DashboardPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private loginProvider: LoginProvider) {
+    private loginProvider: LoginProvider,
+    public menuCtrl: MenuController) {
   }
 
   ionViewDidLoad() {
@@ -33,12 +34,21 @@ export class DashboardPage {
         this.usuario = usuario;
         this.loginProvider.showUsuario(usuario).subscribe(
           data => {
-            this.usuario = data;
+            this.usuario = data;            
           }, error => {
             console.log(error);
           })
       }
     })
+  }
+
+  ionViewDidEnter() {
+    this.trocaMenu();
+  }
+
+  trocaMenu() {
+    this.menuCtrl.enable(true, 'menuDashboard');
+    this.menuCtrl.enable(false, 'menuHome');
   }
 
 }

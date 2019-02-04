@@ -4,31 +4,34 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from '@angular/common/http'; 
 import { IonicStorageModule } from '@ionic/storage';
-import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ProductPageModule } from '../pages/product/product.module';
-import { ProdutosProvider } from '../providers/produtos/produtos';
+
+import { HomePage } from '../pages/home/home';
 import { ProductPage } from '../pages/product/product';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CategoriasPage } from '../pages/categorias/categorias';
-import { CategoriasProvider } from '../providers/categorias/categorias';
 import { ProdutoCategoriasPage } from '../pages/produto-categorias/produto-categorias';
 import { LoginPage } from '../pages/login/login';
 import { CadastroUsuarioPage } from '../pages/cadastro-usuario/cadastro-usuario';
-import { LoginProvider } from '../providers/login/login';
-import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-usuario';
 import { LojaPage } from '../pages/loja/loja';
 import { DetalheLojaPage } from '../pages/detalhe-loja/detalhe-loja';
 import { DashboardPage } from '../pages/dashboard/dashboard';
-import { LojaProvider } from '../providers/loja/loja';
-import { SocialSharing } from '@ionic-native/social-sharing';
 import { CadastroProdutoPage } from '../pages/cadastro-produto/cadastro-produto';
+import { CadastroLojaPage } from '../pages/cadastro-loja/cadastro-loja';
+
+import { ProdutosProvider } from '../providers/produtos/produtos';
+import { CategoriasProvider } from '../providers/categorias/categorias';
+import { LoginProvider } from '../providers/login/login';
+import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-usuario';
+import { LojaProvider } from '../providers/loja/loja';
+
+import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 
@@ -45,7 +48,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     LojaPage,
     DetalheLojaPage,
     DashboardPage,
-    CadastroProdutoPage
+    CadastroProdutoPage,
+    CadastroLojaPage
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     LojaPage,
     DetalheLojaPage,
     DashboardPage,
-    CadastroProdutoPage
+    CadastroProdutoPage,
+    CadastroLojaPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LoginProvider } from '../../providers/login/login';
 import { IUsuario } from '../../../interfaces/IUsuario';
@@ -26,7 +26,8 @@ export class LoginPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public loginProvider: LoginProvider,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public menuCtrl: MenuController) {
   }
 
   ionViewDidLoad() {
@@ -44,13 +45,10 @@ export class LoginPage {
             this.loginProvider.setStorage("usuario", data);
             localStorage.setItem('token', data.token);            
             this.navCtrl.push(DashboardPage);
+            this.trocaMenu();
             console.log(data);
           } else {
-            /* let toast = this.toastCtrl.create({
-              message: "",
-              duration: 3000
-            });
-            toast.present(); */
+            //saber como tratar erro de validação usando toast
             console.log(data); //validação
           }
         } else {
@@ -64,5 +62,14 @@ export class LoginPage {
         toast.present();
         console.log(error);
       });
+    }
+
+    trocaMenu() {
+      this.menuCtrl.enable(true, 'menuDashboard');
+      this.menuCtrl.enable(false, 'menuHome');
+    }
+
+    cancelar() {
+      this.navCtrl.setRoot(HomePage);
     }
 }

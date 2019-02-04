@@ -7,13 +7,55 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cadastroProduto</ion-title>
+    <ion-title>Anúncios</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <img [src]="img">
-  <button ion-button block (click)="tirarFoto()">Tirar Foto</button>
+  <h6>Cadastre um anúncio</h6>
+  <form>
+    <ion-item>
+      <ion-label>Tipo de veículo</ion-label>
+      <ion-select placeholder="Selecione">
+        <ion-option value="carro">Carro</ion-option>
+        <ion-option value="moto">Moto</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select placeholder="Selecione">
+        <ion-option value="pneus">Pneus</ion-option>
+        <ion-option value="baterias">Baterias</ion-option>
+        <ion-option value="oleo">Óleo</ion-option>
+        <ion-option value="acessorios">Acessórios</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Título</ion-label>
+      <ion-input type="text" name="titulo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-textarea name="descricao"></ion-textarea>
+    </ion-item>
+    <ion-item>
+    <img [src]="img">
+    <button ion-button block size="small" color="light" (click)="tirarFoto()">Tirar Foto
+      <ion-icon name="camera"></ion-icon>
+    </button>
+  </ion-item>
+    <ion-item>
+      <ion-label floating>Valor</ion-label>
+      <ion-input name="valor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Publicar</ion-label>
+      <ion-checkbox slot="end" value="sim" checked>Sim</ion-checkbox>
+      <ion-checkbox slot="end" value="nao">Não</ion-checkbox>
+    </ion-item>
+    <button ion-button type="submit" block>Cadastrar</button>
+  </form>
+
 </ion-content>
