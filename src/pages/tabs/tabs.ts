@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { CategoriasPage } from '../categorias/categorias';
+import { CadastroLojaPage } from '../cadastro-loja/cadastro-loja';
+import { DashboardPage } from '../dashboard/dashboard';
+import { AnunciosPage } from '../anuncios/anuncios';
 
 /**
  * Generated class for the TabsPage tabs.
@@ -16,8 +18,9 @@ import { CategoriasPage } from '../categorias/categorias';
 })
 export class TabsPage {
 
-  categoriasRoot = CategoriasPage;
-
+  tab1 = DashboardPage;
+  tab2 = CadastroLojaPage;
+  tab3 = AnunciosPage;
 
   constructor(public navCtrl: NavController) {}
 

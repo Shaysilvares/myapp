@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { CadastroAnuncioProvider } from '../../providers/cadastro-anuncio/cadastro-anuncio';
+import { IAnuncio } from '../../../interfaces/IAnuncio';
+import { LoginProvider } from '../../providers/login/login';
 
 /**
  * Generated class for the CadastroProdutoPage page.
@@ -14,16 +17,28 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   selector: 'page-cadastro-produto',
   templateUrl: 'cadastro-produto.html',
   providers: [
-    Camera
+    Camera,
+    CadastroAnuncioProvider,
+    LoginProvider
   ]
 })
 export class CadastroProdutoPage {
   img:string = "";
+  anuncio:IAnuncio = {
+    tipoveiculo:[],
+    categoria:[],    
+    titulo: '',
+    descricao:'',
+    imagem:'',
+    valor: 0
+    };
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public camera: Camera) {
+    public camera: Camera,
+    public cadastroAnuncioProvider: CadastroAnuncioProvider,
+    public loginProvider: LoginProvider) {
   }
 
   ionViewDidLoad() {
@@ -39,10 +54,17 @@ export class CadastroProdutoPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-      this.img = 'data:image/jpeg;base64,' + imageData;
+    this.img = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
  
     });
   }
 
+  cadastrar() {
+    let usuario = localStorage.getItem('token');
+    console.log(usuario);
+    //this.anuncio.imagem = this.img;
+    this.anuncio.token = usuario;    
+    this.cadastroAnuncioProvider.setStorage("anuncio", this.anuncio);
+  }
 }

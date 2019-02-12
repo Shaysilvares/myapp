@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { IUsuario } from '../../../interfaces/IUsuario';
 import { LoginProvider } from '../../providers/login/login';
+import { CadastroLojaPage } from '../cadastro-loja/cadastro-loja';
+import { CadastroProdutoPage } from '../cadastro-produto/cadastro-produto';
 
 /**
  * Generated class for the DashboardPage page.

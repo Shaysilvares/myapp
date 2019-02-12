@@ -11,7 +11,8 @@ import { IUsuario } from '../../../interfaces/IUsuario';
 */
 @Injectable()
 export class LoginProvider {
-  url:string = "http://localhost:8000/api/";
+  //url: string = "http://10.147.160.244:8000/api/";
+  url: string = "https://dev.autodicas.com/api/";
   constructor(
     public http: HttpClient,
     private storage: Storage) {
@@ -25,10 +26,6 @@ export class LoginProvider {
   getStorage(chave: string) {
     return this.storage.get(chave);
   }
-
-  /* buscarUsuario(data:IUsuario) {
-    return this.http.get<IUsuario>(this.url + 'usuarios/'+ data.id);
-  } */
 
   login(data:IUsuario) {
     return this.http.post<IUsuario>(this.url + 'login', data);

@@ -28,11 +28,13 @@ import { CategoriasProvider } from '../providers/categorias/categorias';
 import { LoginProvider } from '../providers/login/login';
 import { CadastroUsuarioProvider } from '../providers/cadastro-usuario/cadastro-usuario';
 import { LojaProvider } from '../providers/loja/loja';
+import { CadastroAnuncioProvider } from '../providers/cadastro-anuncio/cadastro-anuncio';
 
 import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { SocialSharing } from '@ionic-native/social-sharing';
-
+import { AnunciosPage } from '../pages/anuncios/anuncios';
+import { AnuncioProvider } from '../providers/anuncio/anuncio';
 
 
 
@@ -49,7 +51,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     DetalheLojaPage,
     DashboardPage,
     CadastroProdutoPage,
-    CadastroLojaPage
+    CadastroLojaPage,
+    AnunciosPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     DetalheLojaPage,
     DashboardPage,
     CadastroProdutoPage,
-    CadastroLojaPage
+    CadastroLojaPage,
+    AnunciosPage
   ],
   providers: [
     StatusBar,
@@ -86,7 +90,9 @@ import { SocialSharing } from '@ionic-native/social-sharing';
     LojaProvider,
     SocialSharing,
     Camera,
-    GoogleMaps
+    GoogleMaps,
+    AnuncioProvider,
+    CadastroAnuncioProvider
   ]
 })
 export class AppModule {}

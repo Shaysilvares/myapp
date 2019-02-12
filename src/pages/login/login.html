@@ -12,20 +12,22 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <ion-item>
-          <ion-label floating>Email</ion-label>
-          <ion-input type="email" name="email" [(ngModel)]="usuario.email"></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-label floating>Senha</ion-label>
-          <ion-input type="password" name="senha" [(ngModel)]="usuario.password"></ion-input>
-        </ion-item>    
-      </ion-list>
-    
-      <div padding>
-        <button ion-button color="primary" block (click)="doLogin()">Entrar</button>
-        <button ion-button color="light" block (click)="cancelar()">Cancelar</button>
-      </div>        
+  <form [formGroup]="formulario" >
+      <ion-list>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" formControlName="email" [(ngModel)]="usuario.email"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label floating>Senha</ion-label>
+            <ion-input type="password" formControlName="password" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>    
+        </ion-list>
+      
+        <div padding>
+          <button ion-button color="primary" block (click)="doLogin()" [disabled]="!formulario.valid">Entrar</button>
+          <button ion-button color="light" block (click)="cancelar()">Cancelar</button>
+        </div> 
+  </form>           
 </ion-content>

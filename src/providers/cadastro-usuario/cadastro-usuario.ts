@@ -11,7 +11,8 @@ import { Storage } from '@ionic/storage';
 */
 @Injectable()
 export class CadastroUsuarioProvider {
-    url:string = "http://localhost:8000/api/";
+    //url:string = "http://10.147.160.244:8000/api/";
+    url: string = "https://dev.autodicas.com/api/";
     headers:any;
   constructor(
     public http: HttpClient,

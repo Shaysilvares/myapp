@@ -20,7 +20,7 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
-  dashboardPages: Array<{title: string, component: any}>;
+  //dashboardPages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform, 
@@ -37,11 +37,11 @@ export class MyApp {
       { title: 'Login', component: LoginPage }
     ];
 
-    this.dashboardPages = [
+    /* this.dashboardPages = [
       { title: 'Home', component: DashboardPage },      
       { title: 'Loja', component: CadastroLojaPage },      
       { title: 'Anúncios', component: CadastroProdutoPage}
-    ];
+    ]; */
   }
 
   initializeApp() {
@@ -59,9 +59,9 @@ export class MyApp {
     this.nav.push(page.component);
   }
 
-  openDashboardPage(page) {
+  /* openDashboardPage(page) {
     this.nav.push(page.component);
-  }
+  } */
 
   sair() {
     this.loginProvider.setStorage("usuario", null);

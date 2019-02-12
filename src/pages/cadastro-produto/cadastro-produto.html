@@ -18,14 +18,14 @@
   <form>
     <ion-item>
       <ion-label>Tipo de veículo</ion-label>
-      <ion-select placeholder="Selecione">
+      <ion-select [(ngModel)]="anuncio.tipoveiculo" name="tipoveiculo" placeholder="Selecione">
         <ion-option value="carro">Carro</ion-option>
         <ion-option value="moto">Moto</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Categoria</ion-label>
-      <ion-select placeholder="Selecione">
+      <ion-select [(ngModel)]="anuncio.categoria" name="categoria" placeholder="Selecione">
         <ion-option value="pneus">Pneus</ion-option>
         <ion-option value="baterias">Baterias</ion-option>
         <ion-option value="oleo">Óleo</ion-option>
@@ -34,28 +34,28 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Título</ion-label>
-      <ion-input type="text" name="titulo"></ion-input>
+      <ion-input type="text" [(ngModel)]="anuncio.titulo" type="text" name="titulo"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Descrição</ion-label>
-      <ion-textarea name="descricao"></ion-textarea>
+      <ion-textarea type="text" [(ngModel)]="anuncio.descricao" name="descricao"></ion-textarea>
     </ion-item>
-    <ion-item>
+    <!--<ion-item>
     <img [src]="img">
-    <button ion-button block size="small" color="light" (click)="tirarFoto()">Tirar Foto
-      <ion-icon name="camera"></ion-icon>
-    </button>
-  </ion-item>
+      <button ion-button round color="light" icon-left (click)="tirarFoto()">
+         Tirar Foto
+        <ion-icon name="camera"></ion-icon>
+      </button>      
+  </ion-item>-->
     <ion-item>
       <ion-label floating>Valor</ion-label>
-      <ion-input name="valor"></ion-input>
+      <ion-input [(ngModel)]="anuncio.valor" name="valor"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Publicar</ion-label>
-      <ion-checkbox slot="end" value="sim" checked>Sim</ion-checkbox>
-      <ion-checkbox slot="end" value="nao">Não</ion-checkbox>
+      <ion-checkbox [(ngModel)]="anuncio.isChecked" item-right value="sim" name="valor">Sim</ion-checkbox>
     </ion-item>
-    <button ion-button type="submit" block>Cadastrar</button>
+    <button ion-button type="submit" block (click)="cadastrar()">Cadastrar</button>
   </form>
 
 </ion-content>

@@ -91,7 +91,7 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyBTJtTTC-6IYPbrYNfHuJ6ky23Uubyv3-M" />
     </plugin>
+    <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
     <engine name="browser" spec="5.0.4" />
     <engine name="android" spec="7.1.4" />
-    <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
 </widget>
